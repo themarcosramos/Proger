@@ -1,0 +1,222 @@
+$auth = new yii\rbac\DbManager;
+
+$permissao1 = $auth->createPermission('cadastrar-movimento');
+$permissao1->description = 'Cadastrar Movimento';
+$auth->add($permissao1);
+
+$permissao2 = $auth->createPermission('editar-movimento');
+$permissao2->description = 'Editar Movimento';
+$auth->add($permissao2);
+
+$permissao3 = $auth->createPermission('visualizar-movimento');
+$permissao3->description = 'Visualizar Movimentos';
+$auth->add($permissao3);
+
+$auth->addChild($permissao2, $permissao3);
+
+$permissao4 = $auth->createPermission('excluir-movimento');
+$permissao4->description = 'Excluir Movimento';
+$auth->add($permissao4);
+
+$auth->addChild($permissao4, $permissao3);
+
+$permissao5 = $auth->createPermission('cadastrar-movimentosemcotas');
+$permissao5->description = 'Cadastrar Movimento Sem Cotas';
+$auth->add($permissao5);
+
+$permissao6 = $auth->createPermission('editar-movimentosemcotas');
+$permissao6->description = 'Editar Movimento Sem Cotas';
+$auth->add($permissao6);
+
+$permissao7 = $auth->createPermission('visualizar-movimentosemcotas');
+$permissao7->description = 'Visualizar Movimentos Sem Cotas';
+$auth->add($permissao7);
+
+$auth->addChild($permissao6, $permissao7);
+
+$permissao8 = $auth->createPermission('excluir-movimentosemcotas');
+$permissao8->description = 'Excluir Movimento Sem Cotas';
+$auth->add($permissao8);
+
+$auth->addChild($permissao8, $permissao7);
+
+$permissao9 = $auth->createPermission('gerar-cotas');
+$permissao9->description = 'Gerar Cotas de Refeições';
+$auth->add($permissao9);
+
+$permissao10 = $auth->createPermission('visualizar-cotas');
+$permissao10->description = 'Visualizar Cotas de Refeições';
+$auth->add($permissao10);
+
+$permissao11 = $auth->createPermission('editar-cotas');
+$permissao11->description = 'Editar Cota de Refeição';
+$auth->add($permissao11);
+
+$auth->addChild($permissao11, $permissao10);
+
+$permissao12 = $auth->createPermission('remanejar-cotas');
+$permissao12->description = 'Remanejar Cotas de Refeições';
+$auth->add($permissao12);
+
+$auth->addChild($permissao12, $permissao10);
+
+$permissao13 = $auth->createPermission('cadastrar-digitais');
+$permissao13->description = 'Cadastrar Digital';
+$auth->add($permissao13);
+
+$permissao14 = $auth->createPermission('visualizar-digitais');
+$permissao14->description = 'Visualizar Digitais';
+$auth->add($permissao14);
+
+$permissao15 = $auth->createPermission('excluir-digitais');
+$permissao15->description = 'Excluir Digital';
+$auth->add($permissao15);
+
+$auth->addChild($permissao13, $permissao14);
+$auth->addChild($permissao15, $permissao14);
+
+$permissao16 = $auth->createPermission('visualizar-historicoderemanejamento');
+$permissao16->description = 'Visualizar Histórico de Remanejamento';
+$auth->add($permissao16);
+
+$permissao17 = $auth->createPermission('cadastrar-horario');
+$permissao17->description = 'Cadastrar Horário';
+$auth->add($permissao17);
+
+$permissao18 = $auth->createPermission('editar-horario');
+$permissao18->description = 'Editar Horário';
+$auth->add($permissao18);
+
+$permissao19 = $auth->createPermission('visualizar-horario');
+$permissao19->description = 'Visualizar Horários';
+$auth->add($permissao19);
+
+$auth->addChild($permissao17, $permissao19);
+$auth->addChild($permissao18, $permissao19);
+
+$permissao20 = $auth->createPermission('cadastrar-refeicao');
+$permissao20->description = 'Cadastrar Refeição';
+$auth->add($permissao20);
+
+$permissao21 = $auth->createPermission('editar-refeicao');
+$permissao21->description = 'Editar Refeição';
+$auth->add($permissao21);
+
+$permissao22 = $auth->createPermission('visualizar-refeicao');
+$permissao22->description = 'Visualizar Refeições';
+$auth->add($permissao22);
+
+$auth->addChild($permissao20, $permissao22);
+$auth->addChild($permissao21, $permissao22);
+
+$permissao23 = $auth->createPermission('cadastrar-refeicaosemcotas');
+$permissao23->description = 'Cadastrar Refeição Sem Cotas';
+$auth->add($permissao23);
+
+$permissao24 = $auth->createPermission('editar-refeicaosemcotas');
+$permissao24->description = 'Editar Refeição Sem Cotas';
+$auth->add($permissao24);
+
+$permissao25 = $auth->createPermission('visualizar-refeicaosemcotas');
+$permissao25->description = 'Visualizar Refeições Sem Cotas';
+$auth->add($permissao25);
+
+$auth->addChild($permissao23, $permissao25);
+$auth->addChild($permissao24, $permissao25);
+
+$permissao26 = $auth->createPermission('cadastrar-aluno');
+$permissao26->description = 'Cadastrar Aluno com Benefício Integral';
+$auth->add($permissao26);
+
+$permissao27 = $auth->createPermission('editar-aluno');
+$permissao27->description = 'Editar Aluno com Benefício Integral';
+$auth->add($permissao27);
+
+$permissao28 = $auth->createPermission('visualizar-aluno');
+$permissao28->description = 'Visualizar Alunos com Benefício Integral';
+$auth->add($permissao28);
+
+$auth->addChild($permissao26, $permissao28);
+$auth->addChild($permissao27, $permissao28);
+
+$permissao29 = $auth->createPermission('cadastrar-tipodealuno');
+$permissao29->description = 'Cadastrar Tipo de Aluno';
+$auth->add($permissao29);
+
+$permissao30 = $auth->createPermission('editar-tipodealuno');
+$permissao30->description = 'Editar Tipo de Aluno';
+$auth->add($permissao30);
+
+$permissao31 = $auth->createPermission('visualizar-tipodealuno');
+$permissao31->description = 'Visualizar Tipo de Aluno';
+$auth->add($permissao31);
+
+$auth->addChild($permissao29, $permissao31);
+$auth->addChild($permissao30, $permissao31);
+
+$permissao32 = $auth->createPermission('cadastrar-usuario');
+$permissao32->description = 'Cadastrar Usuário';
+$auth->add($permissao32);
+
+$permissao33 = $auth->createPermission('editar-usuario');
+$permissao33->description = 'Editar Usuário';
+$auth->add($permissao33);
+
+$permissao34 = $auth->createPermission('visualizar-usuario');
+$permissao34->description = 'Visualizar Usuário';
+$auth->add($permissao34);
+
+$auth->addChild($permissao32, $permissao34);
+$auth->addChild($permissao33, $permissao34);
+
+$permissao35 = $auth->createPermission('excluir-usuario');
+$permissao35->description = 'Excluir Usuário';
+$auth->add($permissao35);
+
+$auth->addChild($permissao35, $permissao34);
+
+$permissao36 = $auth->createPermission('cadastrar-grupodeusuario');
+$permissao36->description = 'Cadastrar Grupo de Usuário';
+$auth->add($permissao36);
+
+$permissao37 = $auth->createPermission('editar-grupodeusuario');
+$permissao37->description = 'Editar Grupo de Usuário';
+$auth->add($permissao37);
+
+$permissao38 = $auth->createPermission('visualizar-grupodeusuario');
+$permissao38->description = 'Visualizar Grupos de Usuário';
+$auth->add($permissao38);
+
+$auth->addChild($permissao36, $permissao38);
+$auth->addChild($permissao37, $permissao38);
+
+$permissao39 = $auth->createPermission('visualizar-tipodebeneficio');
+$permissao39->description = 'Visualizar Tipos de Benefício';
+$auth->add($permissao39);
+
+$permissao40 = $auth->createPermission('editar-tipodebeneficio');
+$permissao40->description = 'Editar Tipos de Benefício';
+$auth->add($permissao40);
+
+$permissao41 = $auth->createPermission('cadastrar-tipodebeneficio');
+$permissao41->description = 'Cadastrar Tipos de Benefício';
+$auth->add($permissao41);
+
+$auth->addChild($permissao40, $permissao39);
+$auth->addChild($permissao41, $permissao39);
+
+$permissao42 = $auth->createPermission('registrar-movimento');
+$permissao42->description = 'Registrar Movimento';
+$auth->add($permissao42;
+
+$permissao43 = $auth->createPermission('gerar-relatorio-movimento');
+$permissao43->description = 'Gerar Relatório de Movimento';
+$auth->add($permissao43);
+
+$permissao44 = $auth->createPermission('gerar-relatorio-movimento-sem-cotas');
+$permissao44->description = 'Gerar Relatório de Movimento Sem Cotas';
+$auth->add($permissao44);
+
+$permissao45 = $auth->createPermission('gerar-relatorio-aluno');
+$permissao45->description = 'Gerar Relatório de Alunos';
+$auth->add($permissao45);
